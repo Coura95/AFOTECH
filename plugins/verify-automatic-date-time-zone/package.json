@@ -1,0 +1,59 @@
+{
+  "_from": "verify-automatic-date-time-zone@^1.0.3-dev",
+  "_id": "verify-automatic-date-time-zone@1.0.3-dev",
+  "_inBundle": false,
+  "_integrity": "sha1-kPiCQ7MpgDzlGF1FwlbjN+j+UaE=",
+  "_location": "/verify-automatic-date-time-zone",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "verify-automatic-date-time-zone@^1.0.3-dev",
+    "name": "verify-automatic-date-time-zone",
+    "escapedName": "verify-automatic-date-time-zone",
+    "rawSpec": "^1.0.3-dev",
+    "saveSpec": null,
+    "fetchSpec": "^1.0.3-dev"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/verify-automatic-date-time-zone/-/verify-automatic-date-time-zone-1.0.3-dev.tgz",
+  "_shasum": "90f88243b329803ce5185d45c256e337e8fe51a1",
+  "_spec": "verify-automatic-date-time-zone@^1.0.3-dev",
+  "_where": "C:\\Users\\SOW\\Desktop\\HTSOFT\\PROJET AFOTECH\\afotech mobile",
+  "author": {
+    "name": "Edson Horácio Junior"
+  },
+  "bugs": {
+    "url": "https://github.com/edsonhoraciojunior/verify-automatic-date-time-zone/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "verify-automatic-date-time-zone",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "dependencies": {},
+  "deprecated": false,
+  "description": "Verify Automatic Date, Time and Timezone",
+  "devDependencies": {},
+  "homepage": "https://github.com/edsonhoraciojunior/verify-automatic-date-time-zone#readme",
+  "keywords": [
+    "automatic",
+    "date",
+    "time",
+    "timezone",
+    "settings"
+  ],
+  "license": "MIT",
+  "name": "verify-automatic-date-time-zone",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edsonhoraciojunior/verify-automatic-date-time-zone.git"
+  },
+  "types": "./types/index.d.ts",
+  "version": "1.0.3-dev"
+}
