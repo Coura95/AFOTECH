@@ -318,7 +318,10 @@ angular.module('starter.controllers', ['pascalprecht.translate'])
       console.log($scope.data.survey);
       console.log($scope.data.installation);
       console.log($scope.data.depart);
-      if($scope.data.depart && $scope.data.depart.photos && $scope.data.depart.photos.length > 0){
+      if($scope.data.depart 
+        
+         && $scope.data.depart.photos && $scope.data.depart.photos.length > 0 
+        ){
         var date = new Date();
         var heureDepart                = date.getHours() + ":" + date.getMinutes();
         $scope.data.depart.heureDepart = heureDepart;
@@ -1258,7 +1261,7 @@ angular.module('starter.controllers', ['pascalprecht.translate'])
               $ionicLoading.hide();
 
             }).catch(function (error) {
-              console.log(error)
+              console.log(error);
               $ionicLoading.hide();
               alert(error);
             });

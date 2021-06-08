@@ -156,5 +156,15 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "cordova.plugins.diagnostic": {
+    "source": {
+      "type": "registry",
+      "id": "cordova.plugins.diagnostic@^6.0.3"
+    },
+    "is_top_level": true,
+    "variables": {
+      "ANDROIDX_VERSION": "1.+"
+    }
   }
 }

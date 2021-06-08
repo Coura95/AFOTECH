@@ -5,11 +5,12 @@
   "devDependencies": {
     "@ionic/v1-toolkit": "^1.0.15",
     "angular-translate": "^2.18.1",
-    "cordova-android": "^9.0.0",
+    "cordova-android": "^9.1.0",
     "cordova-android-support-gradle-release": "^3.0.1",
     "cordova-plugin-email-composer": "^0.9.2",
     "cordova-plugin-enable-multidex": "^0.2.0",
     "cordova-plugin-geolocation": "^4.0.2",
+    "cordova.plugins.diagnostic": "^6.0.3",
     "gulp": "github:gulpjs/gulp#v4.0.0-alpha.3",
     "gulp-clean-css": "^3.7.0",
     "gulp-rename": "^1.2.0",
@@ -76,7 +77,10 @@
       },
       "cordova-plugin-enable-multidex": {},
       "cordova-plugin-androidx": {},
-      "cordova-plugin-androidx-adapter": {}
+      "cordova-plugin-androidx-adapter": {},
+      "cordova.plugins.diagnostic": {
+        "ANDROIDX_VERSION": "1.+"
+      }
     },
     "platforms": [
       "android"

@@ -22,6 +22,10 @@
                 background-color: #0a86c4;
                 color: white;
             }
+            .footer-button {
+              margin-bottom: 10px;
+              height: 50px !important;
+            }
 
       </style>
 
@@ -89,6 +93,7 @@
                 <ion-radio style="font-size: 10px;" ng-model="data.traveaux" ng-value="'INSTALLATION + SURVEY'">INSTALLATION + SURVEY</ion-radio>
                 <ion-radio style="font-size: 10px;" ng-model="data.traveaux" ng-value="'FINALISATION'">FINALISATION</ion-radio>
                 <ion-radio style="font-size: 10px;" ng-model="data.traveaux" ng-value="'PASSAGE'">PASSAGE</ion-radio>
+                <ion-radio style="font-size: 10px;" ng-model="data.traveaux" ng-value="'SAV'">SAV</ion-radio>
              
             
             </ul>
@@ -109,15 +114,15 @@
               </div>
             </div>
 
-            <div class="row" style="margin-bottom: 15px !important;">
+           <!--  <div class="row" style="margin-bottom: 15px !important;">
               <div class="col">
                    <label for="" style="font-weight: bold;">Commentaire</label>
                      <input type="text" 
                      ng-keyup="getRxcui(data.commentaire,'commentaire')"
                      placeholder="taper ici" ng-model="data.commentaire">
-            </div>
+            </div> 
             
-          </div>
+          </div> -->
         
       </div>
 
@@ -282,12 +287,12 @@
       </ion-content>
       <div >
 
-        <div class="row div-header">
+        <div class="row bar bar-footer footer-button">
 
       
           <div class="col" ng-if="etape==0">
             <button ng-click="suivant(0, 1)" class="button button-block button-assertive" color="danger" type="submit"
-              name="submit"><span style="color:white">Suivant</span></button>
+              name="submit"><span style="color:white">Suivrtyant</span></button>
           </div>
           <div class="col" ng-if="etape>0">
             <button ng-click="suivant(0, -1)" class="button button-block button-assertive" color="danger" type="submit"

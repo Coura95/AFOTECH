@@ -62,6 +62,10 @@
     },
     "cordova-plugin-androidx-adapter": {
       "PACKAGE_NAME": "com.htsoft.ccbm"
+    },
+    "cordova.plugins.diagnostic": {
+      "ANDROIDX_VERSION": "1.+",
+      "PACKAGE_NAME": "com.htsoft.ccbm"
     }
   },
   "dependent_plugins": {}

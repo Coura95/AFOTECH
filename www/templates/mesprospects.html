@@ -2,11 +2,12 @@
   <div ng-app="starter">
 
     <ion-content padding="true" class="has-header">
-<ul class="list" ng-if="abonnement == 1">
-       
-       
-        <!--Test         Regions                       -->
-       <!-- <div class="item item-body" >
+      <ion-grid>
+        <ul class="list" ng-if="abonnement == 1">
+
+
+          <!--Test         Regions                       -->
+          <!-- <div class="item item-body" >
           <button class="button button-block button-assertive"
                   cancel-button="{{ 'fichevisite_select_pv_return' | translate }}"
                   reset-button="{{ 'fichevisite_select_pv_cancel' | translate }}"
@@ -44,60 +45,76 @@
           <button ng-click="filterByDate()" class="button button-block button-assertive" color="danger" type="submit"
             name="submit"><span style="color:white">Filtrer</span></button>
         </div>-->
-      
-      
-      <ion-item ng-repeat="playlist in pvs | filter:motcle" style="border: solid;">
-        <span style="font-weight: bold;">Date ajout :</span> <span style="float:right">{{playlist.dateAjout | date:'yyyy-MM-dd'}}</span><br>
-        <span style="font-weight: bold;">Chef de chantier :</span> <span style="float:right">{{playlist.gerant}}</span><br>
-        <span style="font-weight: bold;">Adresse : </span><span style="float:right">{{playlist.adresse}}</span><br>
-        <span style="font-weight: bold;">Type de chantier :</span> <span style="float:right" ngIf="playlist.typeChantier!=null">{{playlist.typeChantier}}</span><br>
-        <span style="font-weight: bold;">Type de traveaux : </span><span style="float:right" ngIf="playlist.typeChantier!=null">{{playlist.traveaux}}</span><br>
-        <span style="font-weight: bold;">commentaire : </span><span style="float:right;white-space: pre-line;" ngIf="playlist.commentaire!=null">{{playlist.commentaire}}</span><br>
-        <!-- Heure d'arrivée : <span style="float:right" ngIf="playlist.commentaire!=null">{{playlist.heureArrivee}}</span><br> -->
-        <!-- Heure départ : <span style="float:right" ngIf="playlist.commentaire!=null">{{playlist.heureDepart}}</span><br> -->
-        <span style="float:left;font-weight: bold;margin-top: 10px;text-decoration: underline;" ngIf="playlist.survey!=null">Survey</span><br><br><br><br>
-        <span style="font-weight: bold;">Commentaire: </span><span style="float:right" ngIf="playlist.survey!=null">{{playlist.survey.commentaire}}</span><br>
-        <span style="font-weight: bold;">Heure début : </span><span style="float:right" ngIf="playlist.commentaire!=null">{{playlist.survey.heureDebut}}</span><br>
-        <span style="font-weight: bold;">Heure fin : </span><span style="float:right" ngIf="playlist.commentaire!=null">{{playlist.survey.heureFin}}</span><br>
-        <ion-scroll>
-          <img src="http://test-test.h-tsoft.com/apiafotech/img/{{playlist.survey.photo}}"
-           width="20%"/>
-         </ion-scroll>
-         <br><br>
-        <span style="float:left;font-weight: bold;margin-top: 10px;text-decoration: underline;" ngIf="playlist.installation!=null">Installation</span><br><br><br>
-        <span style="font-weight: bold;">Commentaire: </span><span style="float:right" ngIf="playlist.typeChantier!=null">{{playlist.installation.commentaire}}</span><br>
-        <span style="font-weight: bold;">Heure début : </span><span style="float:right" ngIf="playlist.commentaire!=null">{{playlist.installation.heureDebut}}</span><br>
-        <span style="font-weight: bold;">Heure fin : </span><span style="float:right" ngIf="playlist.commentaire!=null">{{playlist.installation.heureFin}}</span><br>
-          <ion-scroll>
-            <img src="http://test-test.h-tsoft.com/apiafotech/img/{{playlist.installation.photo}}"
-             width="20%"/>
-           </ion-scroll>
-           <br><br>
-           <span style="float:left;font-weight: bold;margin-top: 10px;text-decoration: underline;" ngIf="playlist.survey!=null">Depart chantiter</span><br><br><br>
-           <span style="font-weight: bold;">Commentaire: </span><span style="float:right" ngIf="playlist.departChantier!=null">{{playlist.departChantier.commentaire}}</span><br><br>
-           <span style="font-weight: bold;">Heure depart : </span><span style="float:right" ngIf="playlist.commentaire!=null">{{playlist.depart.heureDepart}}</span><br>
-           <ion-row ng-repeat="photo in playlist.departChantier.photos">
-             <ion-col>
-              <img src="http://test-test.h-tsoft.com/apiafotech/img/{{photo}}"
-              width="20%"/>
-             </ion-col>
-           </ion-row>
-          
-           <br><br>
-      </ion-item>
-</ul>
-
-<ul class="list" ng-if="abonnement == 0" style="align-items: center;color: red">
-  <div style="text-align: center;">
-    <img src="./img/abonnement.png" ><br/>
-  <label>
-    Abonnement expiré.
-  </label>
-  </div>
-
-</ul>
 
 
+          <ion-item ng-repeat="playlist in pvs | filter:motcle" style="border: solid;">
+            <span style="font-weight: bold;">Date ajout :</span> <span style="float:right">{{playlist.dateAjout |
+              date:'yyyy-MM-dd'}}</span><br>
+            <span style="font-weight: bold;">Chef de chantier :</span> <span
+              style="float:right">{{playlist.gerant}}</span><br>
+            <span style="font-weight: bold;">Adresse : </span><span style="float:right">{{playlist.adresse}}</span><br>
+            <span style="font-weight: bold;">Type de chantier :</span> <span style="float:right"
+              ngIf="playlist.typeChantier!=null">{{playlist.typeChantier}}</span><br>
+           <!-- <span style="font-weight: bold;">Type de traveaux : </span><span style="float:right"
+              ngIf="playlist.typeChantier!=null">{{playlist.traveaux}}</span><br>
+             <span style="font-weight: bold;">commentaire : </span><span style="float:right;white-space: pre-line;"
+              ngIf="playlist.commentaire!=null">{{playlist.commentaire}}</span><br> -->
+            <!-- Heure d'arrivée : <span style="float:right" ngIf="playlist.commentaire!=null">{{playlist.heureArrivee}}</span><br> -->
+            <!-- Heure départ : <span style="float:right" ngIf="playlist.commentaire!=null">{{playlist.heureDepart}}</span><br> -->
+            <span style="float:left;font-weight: bold;margin-top: 10px;text-decoration: underline;"
+              ngIf="playlist.survey!=null">Survey</span><br><br><br><br>
+            
+            <span style="font-weight: bold;">Heure début : </span><span style="float:right"
+              ngIf="playlist.commentaire!=null">{{playlist.survey.heureDebut}}</span><br>
+            <span style="font-weight: bold;">Heure fin : </span><span style="float:right"
+              ngIf="playlist.commentaire!=null">{{playlist.survey.heureFin}}</span><br>
+              <span style="font-weight: bold;">Commentaire: </span><span style="float:right"
+              ngIf="playlist.survey!=null">{{playlist.survey.commentaire}}</span><br>
+            <ion-scroll>
+              <img src="http://test-test.h-tsoft.com/apiafotech/img/{{playlist.survey.photo}}" width="20%" />
+            </ion-scroll>
+            <br><br>
+            <span style="float:left;font-weight: bold;margin-top: 10px;text-decoration: underline;"
+              ngIf="playlist.installation!=null">Installation</span><br><br><br>
+            
+            <span style="font-weight: bold;">Heure début : </span><span style="float:right"
+              ngIf="playlist.commentaire!=null">{{playlist.installation.heureDebut}}</span><br>
+            <span style="font-weight: bold;">Heure fin : </span><span style="float:right"
+              ngIf="playlist.commentaire!=null">{{playlist.installation.heureFin}}</span><br>
+              <span style="font-weight: bold;">Commentaire: </span><span style="float:right"
+              ngIf="playlist.typeChantier!=null">{{playlist.installation.commentaire}}</span><br>
+            <ion-scroll>
+              <img src="http://test-test.h-tsoft.com/apiafotech/img/{{playlist.installation.photo}}" width="20%" />
+            </ion-scroll>
+            <br><br>
+            <span style="float:left;font-weight: bold;margin-top: 10px;text-decoration: underline;"
+              ngIf="playlist.survey!=null">Depart chantiter</span><br><br><br>
+            
+            <span style="font-weight: bold;">Heure depart : </span><span style="float:right"
+              ngIf="playlist.commentaire!=null"><!-- {{playlist.depart.heureDepart}} -->{{playlist.departChantier.heureDepart}}</span><br>
+              <span style="font-weight: bold;">Commentaire: </span><span style="float:right"
+              ngIf="playlist.departChantier!=null">{{playlist.departChantier.commentaire}}</span><br><br>
+            <ion-row ng-repeat="photo in playlist.departChantier.photos">
+              <ion-col>
+                <img src="http://test-test.h-tsoft.com/apiafotech/img/{{photo}}" width="20%" />
+              </ion-col>
+            </ion-row>
+
+            <br><br>
+          </ion-item>
+        </ul>
+
+        <ul class="list" ng-if="abonnement == 0" style="align-items: center;color: red">
+          <div style="text-align: center;">
+            <img src="./img/abonnement.png"><br />
+            <label>
+              Abonnement expiré.
+            </label>
+          </div>
+
+        </ul>
+
+      </ion-grid>
     </ion-content>
   </div>
-  </ion-view>
+</ion-view>
