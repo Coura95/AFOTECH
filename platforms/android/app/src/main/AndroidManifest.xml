@@ -31,4 +31,5 @@
     <uses-feature android:name="android.hardware.location" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-feature android:name="android.hardware.location.gps" android:required="true" />
+    
 </manifest>

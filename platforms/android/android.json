@@ -22,11 +22,11 @@
           "/*": [
             {
               "xml": "<preference name=\"GradlePluginGoogleServicesEnabled\" value=\"true\" />",
-              "count": 3
+              "count": 6
             },
             {
               "xml": "<preference name=\"GradlePluginGoogleServicesVersion\" value=\"4.2.0\" />",
-              "count": 3
+              "count": 6
             },
             {
               "xml": "<feature name=\"CDVIonicKeyboard\"><param name=\"android-package\" onload=\"true\" value=\"io.ionic.keyboard.CDVIonicKeyboard\" /></feature>",
