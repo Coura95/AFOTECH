@@ -85,15 +85,24 @@
                   </button>
                 </div>
               </div>
+              <ion-radio-group>
 
-              <ion-radio style="font-size: 10px;" ng-model="data.traveaux" ng-value="'INSTALLATION'">INSTALLATION
-              </ion-radio>
-              <ion-radio style="font-size: 10px;" ng-model="data.traveaux" ng-value="'SURVEY'">SURVEY</ion-radio>
-              <ion-radio style="font-size: 10px;" ng-model="data.traveaux" ng-value="'INSTALLATION + SURVEY'">
-                INSTALLATION + SURVEY</ion-radio>
-              <ion-radio style="font-size: 10px;" ng-model="data.traveaux" ng-value="'FINALISATION'">FINALISATION
-              </ion-radio>
-              <ion-radio style="font-size: 10px;" ng-model="data.traveaux" ng-value="'PASSAGE'">PASSAGE</ion-radio>
+                <ion-radio checked="true" style="font-size: 10px;" ng-model="data.traveaux" ng-value="'INSTALLATION'">
+                  INSTALLATION
+                </ion-radio>
+                <ion-radio checked="true" style="font-size: 10px;" ng-model="data.traveaux" ng-value="'SURVEY'">SURVEY
+                </ion-radio>
+                <ion-radio checked="true" style="font-size: 10px;" ng-model="data.traveaux"
+                  ng-value="'INSTALLATION + SURVEY'">
+                  INSTALLATION + SURVEY</ion-radio>
+                <ion-radio checked="true" style="font-size: 10px;" ng-model="data.traveaux" ng-value="'FINALISATION'">
+                  FINALISATION
+                </ion-radio>
+                <ion-radio checked="true" style="font-size: 10px;" ng-model="data.traveaux" ng-value="'PASSAGE'">PASSAGE
+                </ion-radio>
+
+              </ion-radio-group>
+
 
 
             </ul>
@@ -123,18 +132,36 @@
           </div>
 
           <!-- Fin etape 0-->
-          <!-- Fin etape 0 ng-if="data.traveaux === SURVEY"  ng-if="data.traveaux === INSTALLATION"-->
+         
 
           <div class="row" style="margin-bottom: 10px;" ng-if="etape>0">
-
-            <div class="col text-center;" ng-if="data.traveaux === SURVEY " ng-class="{largeWidth: etape !== 1, smallWidth: etape == 1}"
+         
+            
+            <div class="col text-center;"  ng-class="{largeWidth: etape !== 1, smallWidth: etape == 1}"
               ng-click="tab(1)">
+              
               <label for="" style="font-weight: bold;text-align: center;font-size: 10px;">SURVEY</label>
             </div>
 
-            <div class="col text-center;"  ng-if="data.traveaux === INSTALLATION" ng-class="{largeWidth: etape !== 2, smallWidth: etape == 2}">
+           
+            <div class="col text-center;"  ng-class="{largeWidth: etape !== 2, smallWidth: etape == 2}">
+              
               <label for="" style="font-weight: bold;text-align: center;font-size: 10px;"
                 ng-click="tab(2)">INSTALLATION</label>
+            </div>
+
+            
+            <div class="col text-center;"  ng-class="{largeWidth: etape !== 3, smallWidth: etape == 3}">
+              
+              <label for="" style="font-weight: bold;text-align: center;font-size: 10px;"
+                ng-click="tab(3)">FINALISATION</label>
+            </div>
+
+            
+            <div class="col text-center;" ng-class="{largeWidth: etape !== 4, smallWidth: etape == 4}">
+              
+              <label for="" style="font-weight: bold;text-align: center;font-size: 10px;"
+                ng-click="tab(4)">PASSAGE</label>
             </div>
             <!-- 
                 <div class="col text-center;"  ng-class="{largeWidth: etape !== 2, smallWidth: etape == 2}">
@@ -145,15 +172,16 @@
                 <label for="" style="font-weight: bold;text-align: center;font-size: 10px;" ng-click="tab(5)">PASSAGE</label>
             </div> -->
 
-            <div class="col text-center;" ng-class="{largeWidth: etape !== 3, smallWidth: etape == 3}">
-              <label for="" style="font-weight: bold;text-align: center;font-size: 10px;" ng-click="tab(3)">DEPART
+            <div class="col text-center;" ng-class="{largeWidth: etape !== 5, smallWidth: etape == 5}">
+              <label for="" style="font-weight: bold;text-align: center;font-size: 10px;" ng-click="tab(5)">DEPART
                 CHANTIER</label>
             </div>
           </div>
 
-          <div ng-if="etape ==1">
+          <div  ng-if="etape == 1  && (data.traveaux == 'SURVEY' || data.traveaux == 'INSTALLATION + SURVEY')  && data.traveaux != 'INSTALLATION' && data.traveaux != 'FINALISATION' && data.traveaux != 'PASSAGE'">
 
             <div class="row">
+              
               <div class="col text-left">
                 <label for="">Heure début</label>
                 <input type="time" ng-model="data.survey.heureDebut" style="color:#0a86c4;font-weight: bold;"
@@ -197,9 +225,10 @@
             }
 
           </script>
-          <div ng-if="etape==2">
+          <div  ng-if="etape == 2 && (data.traveaux == 'INSTALLATION' || data.traveaux == 'INSTALLATION + SURVEY') && data.traveaux != 'SURVEY' && data.traveaux != 'FINALISATION' && data.traveaux != 'PASSAGE'">
 
             <div class="row">
+              
               <div class="col text-left">
                 <label for="">Heure début</label>
                 <input type="time" style="color:#0a86c4;font-weight: bold;" placeholder="Heure début"
@@ -237,7 +266,89 @@
 
           </div>
 
-          <div ng-if="etape==3">
+          <div ng-if="etape==3 && data.traveaux != 'INSTALLATION' && data.traveaux != 'SURVEY' && data.traveaux == 'FINALISATION' && data.traveaux != 'PASSAGE'">
+
+            <div class="row">
+             
+              <div class="col text-left">
+                <label for="">Heure début</label>
+                <input type="time" style="color:#0a86c4;font-weight: bold;" placeholder="Heure début"
+                  ng-model="data.finalisation.heureDebut">
+              </div>
+              <div class="col text-right">
+                <label for="" style="margin-right: 90px;">Heure fin</label>
+                <input type="time" style="color:#0a86c4;font-weight: bold;" placeholder="Heure fin"
+                  ng-model="data.finalisation.heureFin">
+              </div>
+            </div>
+
+            <!-- <div class="row">
+              <div class="col">
+                <label for="" style="font-weight: bold;">Commentaire</label>
+                <input type="text" placeholder="taper ici" ng-model="data.finalisation.commentaire">
+              </div>
+            </div> -->
+
+            <div class="row">
+              <div class="col">
+                <button ng-click="addImage('finalisation')" class="button button-block button-assertive" color="danger"
+                  type="submit" name="submit"><span style="color:white"> Photo finalisation</span></button>
+              </div>
+            </div>
+
+            <div class="row" style="margin-top:10px !important;">
+              <div class="col text-center">
+                <ion-scroll *ng-if="data.installation.photo">
+                  <img ng-src="{{data.installation.photo}}" style="border-radius: 30%;" width="50%" />
+                </ion-scroll>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div ng-if="etape==4 && data.traveaux != 'INSTALLATION' && data.traveaux != 'SURVEY'&& data.traveaux != 'FINALISATION' && data.traveaux == 'PASSAGE'">
+
+            <div class="row">
+              
+              <div class="col text-left">
+                <label for="">Heure début</label>
+                <input type="time" style="color:#0a86c4;font-weight: bold;" placeholder="Heure début"
+                  ng-model="data.passage.heureDebut">
+              </div>
+              <div class="col text-right">
+                <label for="" style="margin-right: 90px;">Heure fin</label>
+                <input type="time" style="color:#0a86c4;font-weight: bold;" placeholder="Heure fin"
+                  ng-model="data.passage.heureFin">
+              </div>
+            </div>
+
+            <!-- <div class="row">
+              <div class="col">
+                <label for="" style="font-weight: bold;">Commentaire</label>
+                <input type="text" placeholder="taper ici" ng-model="data.passage.commentaire">
+              </div>
+            </div> -->
+
+            <div class="row">
+              <div class="col">
+                <button ng-click="addImage('passage')" class="button button-block button-assertive" color="danger"
+                  type="submit" name="submit"><span style="color:white"> Photo passage</span></button>
+              </div>
+            </div>
+
+            <div class="row" style="margin-top:10px !important;">
+              <div class="col text-center">
+                <ion-scroll *ng-if="data.passage.photo">
+                  <img ng-src="{{data.passage.photo}}" style="border-radius: 30%;" width="50%" />
+                </ion-scroll>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div ng-if="etape==5">
 
             <div class="row">
               <div class="col">
