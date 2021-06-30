@@ -258,6 +258,8 @@ angular.module('starter.controllers', ['pascalprecht.translate'])
     //Variable survey
     $scope.data.survey       = {};
     $scope.data.installation = {};
+    $scope.data.finalisation = {};
+    $scope.data.passage = {};
     $scope.data.depart       = {photos:[]};
     $scope.data.traveaux     = null;
     //localStorage.setItem('fichearrivee',null);
@@ -314,12 +316,22 @@ angular.module('starter.controllers', ['pascalprecht.translate'])
           return dateFormatFinale;
         }
 
+
+        $scope.changeAllColors = function () {
+          $scope.filter.blue = $scope.filter.yellow = $scope.filter.pink = $scope.filter.color;
+ }
+      $scope.checkColors = function () {
+              $scope.filter.color = $scope.filter.blue && $scope.filter.yellow && $scope.filter.pink;
+          }
+
     $scope.valideVisite = function(){
-      console.log($scope.data.survey);
-      console.log($scope.data.installation);
-      console.log($scope.data.depart);
+      console.log("survey",$scope.data.survey);
+      console.log("installation",$scope.data.installation);
+      console.log("depart",$scope.data.depart);
+      console.log("finalisation",$scope.data.finalisation);
+      console.log("passage",$scope.data.passage);
       if($scope.data.depart 
-       // && $scope.data.depart.photos && $scope.data.depart.photos.length > 0
+       && $scope.data.depart.photos && $scope.data.depart.photos.length > 0
         ){
         var date = new Date();
         var heureDepart                = date.getHours() + ":" + date.getMinutes();
@@ -342,6 +354,24 @@ angular.module('starter.controllers', ['pascalprecht.translate'])
             $scope.data.survey.heureFin   = $scope.formatDateNew($scope.data.survey.heureFin, true,false);
           } 
         }
+
+        if($scope.data.finalisation){
+          if($scope.data.finalisation.heureDebut){
+            $scope.data.finalisation.heureDebut = $scope.formatDateNew($scope.data.finalisation.heureDebut, true,false);
+          }
+          if($scope.data.finalisation.heureFin){
+            $scope.data.finalisation.heureFin   = $scope.formatDateNew($scope.data.finalisation.heureFin, true,false);
+          } 
+        }
+
+        if($scope.data.passage){
+          if($scope.data.passage.heureDebut){
+            $scope.data.passage.heureDebut = $scope.formatDateNew($scope.data.passage.heureDebut, true,false);
+          }
+          if($scope.data.passage.heureFin){
+            $scope.data.passage.heureFin   = $scope.formatDateNew($scope.data.passage.heureFin, true,false);
+          } 
+        }
       
         var test = {
           "longitude"           : $scope.data.longitude,
@@ -361,6 +391,8 @@ angular.module('starter.controllers', ['pascalprecht.translate'])
           "installation"        : $scope.data.installation,
           "departChantier"      : $scope.data.depart,
           "traveaux"            : $scope.data.traveaux,
+          "finalisation"        : $scope.data.finalisation,
+          "passage"             : $scope.data.passage,
           }
           console.log('===========================');
           console.log(test);
@@ -657,6 +689,14 @@ angular.module('starter.controllers', ['pascalprecht.translate'])
           $scope.data.survey.photo= $scope.photo;
         }else
         if(type=='installation'){
+          $scope.data.installation.photo= $scope.photo;
+        }
+        else
+        if(type=='finalisation'){
+          $scope.data.installation.photo= $scope.photo;
+        }
+        else
+        if(type=='passage'){
           $scope.data.installation.photo= $scope.photo;
         }else
         if(type=='depart'){
@@ -1970,6 +2010,9 @@ angular.module('starter.controllers', ['pascalprecht.translate'])
           $ionicLoading.hide();
           console.log(response)
            $scope.pvs = response;
+           for (var i = 0; i < $scope.pvs.length; i++) {
+           console.log("test",$scope.pvs[i].survey.heureDebut);
+           }
         })
     }
     $scope.lispvPhp();

@@ -693,11 +693,11 @@ angular.module('starter.controllers', ['pascalprecht.translate'])
         }
         else
         if(type=='finalisation'){
-          $scope.data.installation.photo= $scope.photo;
+          $scope.data.finalisation.photo= $scope.photo;
         }
         else
         if(type=='passage'){
-          $scope.data.installation.photo= $scope.photo;
+          $scope.data.passage.photo= $scope.photo;
         }else
         if(type=='depart'){
           $scope.data.depart.photos.push($scope.photo);
@@ -1943,7 +1943,7 @@ angular.module('starter.controllers', ['pascalprecht.translate'])
         $http.get(url + "/pointdeventByPays.php?idpays=" + $scope.data.payschoisit.id + "&date=" + $scope.data.datefilter)
           .success(function (response) {
             $ionicLoading.hide();
-            console.log(response)
+            console.log("OUI",response)
             $scope.pvs = response;
             $scope.listDesregionsByPaysID();
           }).catch(function (error) {
@@ -1973,7 +1973,7 @@ angular.module('starter.controllers', ['pascalprecht.translate'])
       $http.get(url + "/pointdeventByRegion.php?idville=" + $scope.data.villechoisit.id + "&date=" + $scope.data.datefilter)
         .success(function (response) {
           $ionicLoading.hide();
-          console.log(response)
+          console.log("QUAND",response)
           $scope.pvs = response;
 
         }).catch(function (error) {
@@ -2008,10 +2008,12 @@ angular.module('starter.controllers', ['pascalprecht.translate'])
       $http.get(url + "/pointventesutilisateur.php?idutilisateur=" + localStorage.getItem('loggedin_iduser'))
         .success(function (response) {
           $ionicLoading.hide();
-          console.log(response)
+          console.log("QUOI?",response)
            $scope.pvs = response;
            for (var i = 0; i < $scope.pvs.length; i++) {
            console.log("test",$scope.pvs[i].survey.heureDebut);
+           console.log("test finalisation",$scope.pvs[i].finalisation.heureDebut);
+           console.log("test passage",$scope.pvs[i].passage.heureDebut);
            }
         })
     }
