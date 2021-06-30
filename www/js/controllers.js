@@ -331,7 +331,7 @@ angular.module('starter.controllers', ['pascalprecht.translate'])
       console.log("finalisation",$scope.data.finalisation);
       console.log("passage",$scope.data.passage);
       if($scope.data.depart 
-      // && $scope.data.depart.photos && $scope.data.depart.photos.length > 0
+       && $scope.data.depart.photos && $scope.data.depart.photos.length > 0
         ){
         var date = new Date();
         var heureDepart                = date.getHours() + ":" + date.getMinutes();
